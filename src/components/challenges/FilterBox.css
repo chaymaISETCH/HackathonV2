@@ -1,0 +1,37 @@
+.filter-box{
+    flex : 1;
+    width: fit-content;
+    background-color: white;
+   
+    padding: 3%;
+    height: fit-content;
+    
+}
+.filter-options{
+    justify-content: space-between;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.filter-options *{
+    margin-top : 10px;
+    
+}
+.filter-box span{
+    font-weight: bold;
+    font-family: Gotham A,Gotham B,sans-serif;
+  
+    padding-top: 20px;
+}
+
+.filter-options input{
+    border-radius: 5px;
+}
+.btn-primary {
+    
+    background-color: #4d4d4d;
+    border: none;
+    
+}
+
+

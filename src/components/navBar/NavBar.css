@@ -1,0 +1,115 @@
+.nav-container {
+  height: 50px;
+  width: 100%;
+  background-color: #2f2f2f;
+  display: flex;
+  color: #bc1c33;
+  /*box-shadow: 0 3px 10px 0 rgba(115, 143, 147, 0.3);*/
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.drop {
+}
+.drop:after {
+  position: absolute;
+  content: "";
+  /* width: 0; */
+  /* height: 0; */
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #fff;
+  margin-top: 7px;
+  margin-left: 5px;
+}
+.sweep-to-bottom {
+  position: relative;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transition: color 1000ms;
+  transition: color 1000ms;
+}
+.sweep-to-bottom:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #feb800;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition: 300ms ease-out;
+  transition: 300ms ease-out;
+}
+.sweep-to-bottom:hover:before {
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+}
+
+.nav-container img {
+  margin-top: 0;
+  margin: 0px;
+  padding: 5px;
+  flex: 1 1;
+  padding-top: 0;
+  /* top: -10px; */
+  max-height: 80px;
+  position: relative;
+  display: relative;
+}
+.nav-container ul {
+  align-items: center;
+  justify-content: flex-end;
+  flex: 6 1;
+  display: flex;
+}
+.nav-container li {
+  letter-spacing: 3px;
+  /* line-height: 0; */
+  height: 50px;
+  font-weight: bold;
+  /* position: absolute; */
+  font-size: 13px;
+  font-family: "Istok Web", sans-serif;
+  padding: 20px;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  /* top: 50px; */
+  /* padding-top: 10px; */
+  transition: all ease 0.35s;
+  background-color: transparent;
+  list-style: none;
+  word-spacing: 5px;
+}
+.nav-item {
+  padding-top: 40px !important;
+  /* line-height: 0; */
+  margin: 10px;
+  height: 80px !important;
+}
+.active-nav-item {
+  background-color: #feb800 !important;
+}
+.signup {
+  background-color: transparent;
+  border: 1px solid #39424e;
+  color: #39424e;
+  word-spacing: 3px;
+  max-width: 100%;
+  line-height: 1.2;
+  font-size: 0.923em;
+  min-height: 2.5em;
+  padding: 0px 1.667em;
+}

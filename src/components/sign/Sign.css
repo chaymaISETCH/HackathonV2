@@ -1,0 +1,11 @@
+.btn-container{
+    display : flex;
+    justify-content : flex-end;
+}
+
+.sign-btn{
+    margin :10px
+}
+button.disabled{
+    background-color:gray
+}

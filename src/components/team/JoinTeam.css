@@ -1,0 +1,88 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+}
+.des,
+.team-container * {
+  text-align: center;
+  margin: auto;
+}
+.back {
+  width: 1em;
+  color: gray;
+  cursor: pointer;
+}
+.invite-container {
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.invite-btn:disabled {
+  border-color: gray;
+  color: gray;
+}
+.invite {
+  width: 100%;
+  width: 5;
+
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.1;
+  color: darkslategray;
+  padding: 5px;
+  background-color: #eee;
+  border-radius: 5px;
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.image-container {
+  margin-left: 2em;
+}
+.round-image {
+  border: 1px solid gray;
+  width: 3em;
+  border-radius: 50px;
+  height: 3em;
+}
+.loading {
+  top: 50%;
+  position: relative;
+  left: 50%;
+}
+.team-container {
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  display: flex;
+}
+.join-team-btn,
+.create-team-btn,
+.invite-btn {
+  font-weight: bold;
+  font-family: Liszt_FY, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 50px;
+  padding: 8px 30px;
+  color: #4da3f8;
+  background-color: transparent;
+  border-color: #4da3f8;
+}
+.create-btn {
+  background-color: #4da3f8;
+  color: white;
+  margin-top: 2em;
+  float: right;
+}
+.join-team-btn:hover,
+.create-team-btn:hover,
+.invite-btn:hover {
+  border-style: inset;
+}
+.create-team {
+}

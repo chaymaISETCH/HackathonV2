@@ -1,0 +1,45 @@
+.challenges-list {
+  flex: 3 1;
+}
+.link {
+  cursor: pointer;
+}
+.manage-challenge {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+.item {
+  background-color: white;
+  padding: 2%;
+  margin: 0 20px 20px 20px;
+}
+
+.item .btn-primary:disabled {
+  color: #fff;
+  background-color: gray;
+  border-color: gray;
+}
+.card-body {
+  padding: 1%;
+}
+.hackathon-title {
+  margin-bottom: 15px;
+  margin-top: 15px;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.hackathon-title span {
+  font-size: 20px;
+}
+.challenge {
+  width: 100%;
+  margin: 2%;
+
+  justify-content: center;
+  display: flex;
+}

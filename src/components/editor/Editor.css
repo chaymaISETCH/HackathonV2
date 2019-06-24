@@ -1,0 +1,16 @@
+.choose-language{
+    background-color: #272822;
+    color: white;
+}
+
+.btn{
+    background-color: #272822;
+    border-radius: 0;
+    letter-spacing: 1px;
+    /* line-height: 1.5; */
+    font-weight: 400;
+    
+}
+.btn:hover{
+    background-color:#feb800
+}

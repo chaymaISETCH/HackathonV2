@@ -1,0 +1,23 @@
+.train-box {
+  width: 100%;
+  display: flex;
+  margin: 2%;
+  background-color: #e5ebf2;
+  padding: 1%;
+}
+.inst {
+  padding-top: 2em;
+  flex: 1;
+}
+.train-box .title {
+  font-weight: bold;
+  font-size: 20px;
+}
+.train-box > div {
+  padding: 2%;
+  flex: 1;
+  text-align: justify;
+}
+a {
+  cursor: pointer;
+}

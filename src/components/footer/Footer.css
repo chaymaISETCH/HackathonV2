@@ -1,0 +1,29 @@
+.footer{
+    height: 70px;
+    width: 100%;
+    background-color: #2f2f2f;
+    
+    color: #bc1c33;
+    box-shadow: 0 3px 10px 0 rgba(115, 143, 147, 0.3);
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    color : white;
+}
+.icons a {
+    cursor: pointer;
+}
+svg{
+    margin:10px;
+    fill:white;
+    color:white;
+}
+.icons{
+    justify-content: flex-end;
+    flex-direction: row;
+    display : flex
+}

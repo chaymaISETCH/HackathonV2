@@ -1,0 +1,5 @@
+#date{float: right;}
+
+#hour,#min,#sec{position:relative;
+    color:#000000;font-size:20px;text-align:center;}
+
