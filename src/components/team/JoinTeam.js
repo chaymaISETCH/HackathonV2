@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Spinner, Form, FormGroup, FormFeedback } from 'reactstrap';
 import "./JoinTeam.css"
+import { connect } from "react-redux";
+import { addMember, setTeam, invite } from "../../redux/actions/actions"
 
 import axios from "axios"
 import { ReactComponent as Back } from "./back.svg"
@@ -8,11 +10,11 @@ class JoinTeam extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id:"",
+            id: "",
             modal: false,
             create: false,
-            invite:false,
-            invalid:false,
+            invite: false,
+            invalid: false,
             loading: true,
             name: "hhh",
             image: "ggg",
@@ -30,7 +32,7 @@ class JoinTeam extends React.Component {
             modal: !prevState.modal
         }));
     }
-    handleChange = (e)=>{this.setState({[e.target.name]:e.target.value})}
+    handleChange = (e) => { this.setState({ [e.target.name]: e.target.value }) }
     getUsersBySchool = () => {
         this.setState({ loading: true })
         let url = "http://localhost:8888/api/users/usersBySchool"
@@ -56,34 +58,40 @@ class JoinTeam extends React.Component {
             .post(url, { name: this.state.name, image: this.state.image })
             .then(res => {
                 console.log(res)
-                if(res.data.error)
-                    this.setState({ invalid:true, creating: false })
-                else
-                    this.setState({ 
-                        creating: false,
-                        invalid:false,
-                        id:res.data.team._id,
-                        invite:true, 
-                        create:false 
-                    })
+                if (res.data.error)
+                    this.setState({ invalid: true, creating: false })
+                else {
 
+                    this.props.setTeam({
+                        name: this.state.name,
+                        image: this.state.image,
+                        _id: res.data.team._id
+                    })
+                    this.setState({
+                        creating: false,
+                        invalid: false,
+                        id: res.data.team._id,
+                        invite: true,
+                        create: false
+                    })
+                }
                 //this.props.addChallenge({ res.data }, this.props.location.state.hackathon)
                 //this.props.history.goBack();
                 //console.log(res);
             })
             .catch(err => {
-                this.setState({ creating: false,invalid:true })
-                
+                this.setState({ creating: false, invalid: true })
+
                 console.log(err);
 
             })
     }
     invite = (id) => {
         console.log(this.state.invited)
-       
+
         let url = "http://localhost:8888/api/teams/invite/" + this.state.id
         axios
-            .put(url, { _id:id})
+            .put(url, { _id: id })
             .then(res => {
                 console.log(res.data)
                 this.setState({ invited: this.state.invited.concat(id) })
@@ -93,9 +101,17 @@ class JoinTeam extends React.Component {
                     return item
                 })
                 this.setState({ users: newUsers })
-                //this.props.addChallenge({ res.data }, this.props.location.state.hackathon)
-                //this.props.history.goBack();
-                //console.log(res);
+                let url2 = "http://localhost:8888/api/users/invite/" + id
+                axios
+                    .put(url2, { _id: this.state.id })
+                    .then(res => {
+                        console.log("res : ", res);
+                        //this.props.addMember({ _id: this.state.id })
+                        this.props.invite({ _id: this.state.id })
+                    })
+                    .catch(e => console.log(e))
+
+
             })
             .catch(err => {
                 console.log(err);
@@ -132,16 +148,16 @@ class JoinTeam extends React.Component {
                             </div>
                         </div>
                         <div className="create-team" style={{ display: this.state.create && !this.state.invite ? "block" : "none" }}>
-                        <Form>
-                        <FormGroup>
-   
-                            <Input placeholder="Title" invalid={this.state.invalid} name="name" value={this.state.name} onChange={this.handleChange} style={{ marginTop: "20px" }} />
-                            <FormFeedback>that name is already taken</FormFeedback>
-                            </FormGroup>
+                            <Form>
+                                <FormGroup>
 
-                            <Input placeholder="Image" name="image" value={this.state.image} onChange={this.handleChange} style={{ marginTop: "20px" }} />
+                                    <Input placeholder="Title" invalid={this.state.invalid} name="name" value={this.state.name} onChange={this.handleChange} style={{ marginTop: "20px" }} />
+                                    <FormFeedback>that name is already taken</FormFeedback>
+                                </FormGroup>
+
+                                <Input placeholder="Image" name="image" value={this.state.image} onChange={this.handleChange} style={{ marginTop: "20px" }} />
                             </Form>
-                            <button className="create-team-btn create-btn" disabled={this.state.creating} onClick={this.createTeam}>{this.state.creating?"...Creating":"Create Team"}</button>
+                            <button className="create-team-btn create-btn" disabled={this.state.creating} onClick={this.createTeam}>{this.state.creating ? "...Creating" : "Create Team"}</button>
 
                         </div>
                         <div className="invite-container" style={{ display: this.state.invite ? "block" : "none" }}>
@@ -173,5 +189,16 @@ class JoinTeam extends React.Component {
         );
     }
 }
+const mapStateToProps = state => ({
+    team: state.team
 
-export default JoinTeam;
+
+})
+const mapDisptachToProps = dispatch => ({
+    setTeam: team => dispatch(setTeam(team)),
+    addMember: user => dispatch(addMember(user)),
+    invite: user => dispatch(invite(user)),
+})
+export default connect(
+    mapStateToProps,
+    mapDisptachToProps)(JoinTeam);

@@ -7,6 +7,29 @@ export const FILTER_BY_TITLE = "FILTER_BY_TITLE"
 export const SET_RESULT = "SET_RESULT"
 export const FILTER_BY_CATEGORY = "FILTER_BY_CATEGORY"
 export const FILTER_BY_DIFFICULTY = "FILTER_BY_DIFFICULTY"
+/*********************************Team***************** */
+export const SET_TEAM = "SET_TEAM"
+export const DELETE_FROM_TEAM = "DELETE_FROM_TEAM"
+export const EDIT_TEAM_MEMBER = "EDIT_TEAM_MEMBER"
+export const ADD_MEMBER = "ADD_MEMBER"
+export const INVITE = "INVITE"
+
+export const setTeam = (team) => {
+    console.log(team)
+    return { type: SET_TEAM, team }
+}
+export const deleteFromTeam = (id) => {
+    return { type: DELETE_FROM_TEAM, id }
+}
+export const editTeamMember = (user) => {
+    return { type: EDIT_TEAM_MEMBER, user }
+}
+export const addMember = (user) => {
+    return { type: ADD_MEMBER, user }
+}
+export const invite = (user) => {
+    return { type: INVITE, user }
+}
 //*************************Hackathon************************** */
 export const ADD_HACKATHON = "ADD_HACKATHON"
 export const DELETE_HACKATHON = "DELETE_HACKATHON"

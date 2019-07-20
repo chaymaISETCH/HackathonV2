@@ -27,7 +27,7 @@ class HackathonsList extends React.Component {
                 <span className="flex">
                     <Input type="search" placeholder="search" onChange={e => this.props.filterHackathonByTitle(e.target.value)} />
 
-                    <AddHackathon edit={false} hackathon={{}} buttonLabel="ADD" />
+                    {this.props.user?this.props.user.role==="superAdmin"?<AddHackathon edit={false} hackathon={{}} buttonLabel="ADD" />:null:null}
                 </span>
                 <div className="challenge">
                     <div className="challenges-list hackathon-list">
